@@ -5,19 +5,19 @@ header("Content-Security-Policy: frame-ancestors https://*.pipedrive.com");
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test Panel</title>
+  <title>Pipedrive Panel Test</title>
 </head>
 <body>
-  <h2>Loading...</h2>
+  <div style="padding:20px;font-family:Arial,sans-serif;">
+    <h2>Loading in Panel...</h2>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js"></script>
   <script>
-    (async function() {
+    (async () => {
       const sdk = await new AppExtensionsSDK().initialize();
-      // Adjust height if needed
-      sdk.execute({ type: 'resize', height: 400 });
-      console.log('SDK initialized', sdk);
-      document.querySelector('h2').textContent = '✅ Panel Loaded!';
+      document.querySelector('h2').textContent = '✅ Panel Loaded Inside Pipedrive!';
+      sdk.execute({ type: 'resize', height: 200 });
     })();
   </script>
 </body>
